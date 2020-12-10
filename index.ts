@@ -63,34 +63,48 @@ class BrowserClient {
     return await this.page?.textContent(selector);
   }
 
-  async getText(item: ElementHandle | BrowserClient, selector: string) {
-    if (item instanceof BrowserClient) {
+  async getText(item: ElementHandle | null, selector: string) {
+    if (item === null) {
       return await this.page?.$eval(selector, (node: any) => node.innerText);
     }
 
     return await item.$eval(selector, (node: any) => node.innerText);
   }
 
-  async getAllText(item: ElementHandle | BrowserClient, selector: string) {
-    if (item instanceof BrowserClient) {
+  async getAllText(item: ElementHandle | null, selector: string) {
+    if (item === null) {
       return await this.page?.$$eval(selector, (node: any) => node.innerText);
     }
 
     return await item.$$eval(selector, (node: any) => node.innerText);
   }
 
-  async getImgUrl(item: ElementHandle | BrowserClient, selector: string) {
-    if (item instanceof BrowserClient) {
+  async getImgUrl(item: ElementHandle | null, selector: string) {
+    if (item === null) {
       return await this.page?.$eval(selector, (node: any) => node.src);
     }
     return await item.$eval(selector, (node: any) => node.src);
   }
 
-  async getHref(item: ElementHandle | BrowserClient, selector: string) {
-    if (item instanceof BrowserClient) {
+  async getHref(item: ElementHandle | null, selector: string) {
+    if (item === null) {
       return await this.page?.$eval(selector, (node: any) => node.href);
     }
     return await item.$eval(selector, (node: any) => node.href);
+  }
+
+  async click(selector: string) {
+    return await this.page?.click(selector);
+  }
+  async rightClick(selector: string) {
+    return await this.page?.click(selector, { button: 'right' });
+  }
+  async doubleClick(selector: string) {
+    return await this.page?.dblclick(selector);
+  }
+
+  async fillInput(selector: string, text: string) {
+    return await this.page?.fill(selector, text);
   }
 
   async close() {

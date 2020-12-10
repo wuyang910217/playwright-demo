@@ -154,7 +154,7 @@ var BrowserClient = /** @class */ (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        if (!(item instanceof BrowserClient)) return [3 /*break*/, 2];
+                        if (!(item === null)) return [3 /*break*/, 2];
                         return [4 /*yield*/, ((_a = this.page) === null || _a === void 0 ? void 0 : _a.$eval(selector, function (node) { return node.innerText; }))];
                     case 1: return [2 /*return*/, _b.sent()];
                     case 2: return [4 /*yield*/, item.$eval(selector, function (node) { return node.innerText; })];
@@ -169,7 +169,7 @@ var BrowserClient = /** @class */ (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        if (!(item instanceof BrowserClient)) return [3 /*break*/, 2];
+                        if (!(item === null)) return [3 /*break*/, 2];
                         return [4 /*yield*/, ((_a = this.page) === null || _a === void 0 ? void 0 : _a.$$eval(selector, function (node) { return node.innerText; }))];
                     case 1: return [2 /*return*/, _b.sent()];
                     case 2: return [4 /*yield*/, item.$$eval(selector, function (node) { return node.innerText; })];
@@ -184,7 +184,7 @@ var BrowserClient = /** @class */ (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        if (!(item instanceof BrowserClient)) return [3 /*break*/, 2];
+                        if (!(item === null)) return [3 /*break*/, 2];
                         return [4 /*yield*/, ((_a = this.page) === null || _a === void 0 ? void 0 : _a.$eval(selector, function (node) { return node.src; }))];
                     case 1: return [2 /*return*/, _b.sent()];
                     case 2: return [4 /*yield*/, item.$eval(selector, function (node) { return node.src; })];
@@ -199,11 +199,55 @@ var BrowserClient = /** @class */ (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        if (!(item instanceof BrowserClient)) return [3 /*break*/, 2];
+                        if (!(item === null)) return [3 /*break*/, 2];
                         return [4 /*yield*/, ((_a = this.page) === null || _a === void 0 ? void 0 : _a.$eval(selector, function (node) { return node.href; }))];
                     case 1: return [2 /*return*/, _b.sent()];
                     case 2: return [4 /*yield*/, item.$eval(selector, function (node) { return node.href; })];
                     case 3: return [2 /*return*/, _b.sent()];
+                }
+            });
+        });
+    };
+    BrowserClient.prototype.click = function (selector) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, ((_a = this.page) === null || _a === void 0 ? void 0 : _a.click(selector))];
+                    case 1: return [2 /*return*/, _b.sent()];
+                }
+            });
+        });
+    };
+    BrowserClient.prototype.rightClick = function (selector) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, ((_a = this.page) === null || _a === void 0 ? void 0 : _a.click(selector, { button: 'right' }))];
+                    case 1: return [2 /*return*/, _b.sent()];
+                }
+            });
+        });
+    };
+    BrowserClient.prototype.doubleClick = function (selector) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, ((_a = this.page) === null || _a === void 0 ? void 0 : _a.dblclick(selector))];
+                    case 1: return [2 /*return*/, _b.sent()];
+                }
+            });
+        });
+    };
+    BrowserClient.prototype.fillInput = function (selector, text) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, ((_a = this.page) === null || _a === void 0 ? void 0 : _a.fill(selector, text))];
+                    case 1: return [2 /*return*/, _b.sent()];
                 }
             });
         });
